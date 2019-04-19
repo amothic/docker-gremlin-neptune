@@ -9,7 +9,7 @@ RUN set -ex \
     && rm gremlin.zip \
     && mv apache-tinkerpop-gremlin-console-$GREMLIN_VERSION gremlin \
     && cd gremlin \
-    && wget https://www.amazontrust.com/repository/SFSRootCAG2.pem
+    && wget https://www.amazontrust.com/repository/SFSRootCAG2.pem \
     && apk del .build-deps
 
 COPY neptune-remote.yaml.template /gremlin/conf/
