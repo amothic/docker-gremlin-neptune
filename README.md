@@ -3,8 +3,7 @@ docker run -it -e NEPTUNE_ENDPOINT=[YOUR ENDPOINT HERE] --rm amothic/gremlin-nep
 ```
 
 ```
-:remote connect tinkerpop.server conf/neptune-remote.yaml
-:remote console
+g.V().limit(1)
 :exit
 ```
 

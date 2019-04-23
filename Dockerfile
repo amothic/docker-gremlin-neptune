@@ -13,6 +13,9 @@ RUN set -ex \
     && apk del .build-deps
 
 COPY neptune-remote.yaml.template /gremlin/conf/
+COPY neptune.groovy /gremlin/
 
-CMD envsubst < /gremlin/conf/neptune-remote.yaml.template > /gremlin/conf/neptune-remote.yaml \
-    && /gremlin/bin/gremlin.sh
+WORKDIR /gremlin
+
+CMD envsubst < conf/neptune-remote.yaml.template > conf/neptune-remote.yaml \
+    && bin/gremlin.sh -i neptune.groovy
